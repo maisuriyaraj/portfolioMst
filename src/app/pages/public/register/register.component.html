@@ -22,7 +22,7 @@
       </div>
       <div class="p-5 bg-white md:flex-1">
         <h3 class="my-4 text-2xl font-semibold text-gray-700">Create Account</h3>
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="flex flex-col space-y-5">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.controls)" class="flex flex-col space-y-5">
           <div class="flex flex-col space-y-1">
             <label for="email" class="text-sm font-semibold text-gray-500">Email address</label>
             <input
@@ -38,6 +38,20 @@
                         Valid Email Address .</p>
           </div>
           <div class="flex flex-col space-y-1">
+            <label for="fullName" class="text-sm font-semibold text-gray-500">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              formControlName="fullName"
+              class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+            />
+            <p *ngIf="registerationForm.fullName.hasError('required') && registerationForm.fullName.touched"
+                        class="text-red-600 text-sm">Full Name is Required !</p>
+          </div>
+          
+          
+          <div class="flex flex-col space-y-1">
             <div class="flex items-center justify-between">
                 <label for="password" class="text-sm font-semibold text-gray-500">Password</label>
             </div>
@@ -45,8 +59,8 @@
                 class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200" />
             <p *ngIf="registerationForm.password.hasError('required') && registerationForm.password.touched"
                 class="text-red-600 text-sm">Password is Required !</p>
-            <p *ngIf="registerationForm.password.hasError('minLength') || registerationForm.password.hasError('maxLength')"
-                class="text-red-600  text-sm">Password should be contain atlest 6 to 14 characters .</p>
+            <!-- <p *ngIf="registerationForm.password.hasError('minLength') || registerationForm.password.hasError('maxLength')"
+                class="text-red-600  text-sm">Password should be contain atlest 6 to 14 characters .</p> -->
         </div>
           <div class="flex flex-col space-y-1">
             <div class="flex items-center justify-between">
@@ -61,8 +75,8 @@
             />
             <p *ngIf="registerationForm.confirm_password.hasError('required') && registerationForm.confirm_password.touched"
                 class="text-red-600 text-sm">Confirm Password is Required !</p>
-            <p *ngIf="registerationForm.confirm_password.hasError('minLength') || registerationForm.confirm_password.hasError('maxLength')"
-                class="text-red-600  text-sm">Password should be contain atlest 6 to 14 characters .</p>
+            <!-- <p *ngIf="registerationForm.confirm_password.hasError('minLength') || registerationForm.confirm_password.hasError('maxLength')"
+                class="text-red-600  text-sm">Password should be contain atlest 6 to 14 characters .</p> -->
           </div>
           <div>
             <button

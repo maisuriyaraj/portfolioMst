@@ -31,7 +31,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
+              "node_modules/ngx-spinner/animations/ball-scale-ripple-multiple.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
