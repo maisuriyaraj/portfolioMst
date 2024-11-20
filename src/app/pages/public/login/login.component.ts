@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent {
   loginForm = new FormGroup({
     userCredentials: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(14)]),
+    password: new FormControl('', [Validators.required]),
   })
 
   get getLoginForm() {
@@ -37,13 +37,12 @@ export class LoginComponent {
     this.loader.show();
     this.authService.LoginUser(payload).then((response) => {
       if (response?.success) {
-        console.log("Response", response);
-        this.toastr.success(response.message);
+        this.route.navigate(['/studio']);
+        // this.toastr.success(response.message);
         this.loader.hide();
       }
     }).catch((error) => {
       this.loader.hide();
-      console.log("error", error);
       this.toastr.error(error?.error?.message, "Error");
     });
   }

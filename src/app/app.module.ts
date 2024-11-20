@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -29,6 +30,6 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
   ],
   exports : [NgxSpinnerModule,ToastrModule,CommonModule],
-  providers: [DataService,AuthService]
+  providers: [DataService,AuthService,CookieService]
 })
 export class AppModule { }
