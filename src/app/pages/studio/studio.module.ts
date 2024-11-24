@@ -5,6 +5,7 @@ import { StudioRoutingModule } from './studio-routing.module';
 import { StudioComponent } from './studio.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     StudioComponent,
     DashboardComponent,
     SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

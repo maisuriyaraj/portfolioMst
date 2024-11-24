@@ -1,0 +1,45 @@
+<header class="fixed top-0 left-0 w-full z-50 bg-white border-b-[1]">
+  <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 lg:px-6 py-2.5">
+    <div class="flex flex-wrap justify-between items-center">
+      <!-- Left Section: Logo/Brand -->
+      <a href="#" class="flex items-center text-gray-800 dark:text-white font-bold text-xl">
+        Portify
+      </a>
+
+      <!-- Right Section: Notification, Avatar, and Hamburger -->
+      <div class="flex items-center space-x-4 lg:order-2">
+        <!-- Notification Button -->
+        <button type="button"
+          class="text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 font-medium rounded-lg text-sm p-2.5">
+          <i class="bi bi-bell text-xl"></i>
+        </button>
+
+        <!-- Profile Avatar -->
+        <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer">
+          <span class="font-medium text-gray-600 dark:text-gray-300">JL</span>
+        </div>
+
+        <!-- Hamburger Button (for Mobile) -->
+        <button data-collapse-toggle="mobile-menu" type="button" (click)="openNav()"
+          class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+          aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu (hidden by default) -->
+      <div id="mobile-menu" class="hidden w-full lg:hidden">
+        <ul class="flex flex-col mt-4 bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+          <li><a href="#" class="block py-2 px-4 text-gray-800 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600">Dashboard</a></li>
+          <li><a href="#" class="block py-2 px-4 text-gray-800 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600">Profile</a></li>
+          <li><a href="#" class="block py-2 px-4 text-gray-800 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

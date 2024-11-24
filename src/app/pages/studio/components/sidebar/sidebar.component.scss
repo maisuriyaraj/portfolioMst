@@ -1,4 +1,28 @@
-.active{
-    background-color: #efefef ;
-    border-radius: 10px;
+
+#sidebar{
+    
+    .main-nav-container-open{
+        width: 270px;
+        transition: width  0.3s ease;
+
+        .main-nav{
+            display: block;
+        }    
+    }
+
+    .main-nav-container-close{
+        width: 0px;
+        transition: width  0.3s ease;
+
+        .main-nav{
+            display: none;
+        }           
+    }
+        
+        
+
+    .active{
+        background-color: #efefef;
+        border-radius: 10px;
+    }
 }
