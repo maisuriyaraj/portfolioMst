@@ -1,20 +1,47 @@
 <div id="dashboardPage">
-    <div class="header-section flex flex-wrap justify-between items-center my-7">
+    <div class="header-section flex flex-wrap justify-between items-center my-5">
         <p class="flex items-center text-gray-800 dark:text-white font-bold text-2xl">
             Welcome Mr.Raj Maisuriya
         </p>
-
-        <button class="transition-all bg-gray-800 hover:bg-gray-700 hover:scale-95 text-white font-semibold py-3 px-5 rounded-lg text-[14px]">
-            Add Template
-        </button>
     </div>
 
     <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="flex cursor-pointer flex-col justify-center border border-gray-200 rounded-lg bg-white shadow-md overflow-hidden hover:shadow-lg transition duration-300 relative"
+                (click)="openAddTemplateModal(addTemplate)">
+                <div class="p-6 flex transition-all text-gray-800 hover:bg-gray-800 hover:text-white items-center">
+                    <div class="p-3 border rounded-full mr-4"><i class="bi bi-vector-pen"></i></div>
+                    <div>
+                        <p class="text-lg font-bold truncate">Add Template</p>
+                        <p class="text-[12px] mt-2 text-gray-500">Design and Prototype</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="flex cursor-pointer flex-col justify-center border border-gray-200 rounded-lg bg-white shadow-md overflow-hidden hover:shadow-lg transition duration-300 relative">
+                <div class="p-6 flex transition-all text-gray-800 hover:bg-gray-800 hover:text-white items-center">
+                    <div class="p-3 border rounded-full mr-4"><i class="bi bi-cloud-download"></i></div>
+                    <div>
+                        <p class="text-lg font-bold truncate">Import</p>
+                        <p class="text-[12px] mt-2 text-gray-500">Import Json</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" flex flex-wrap justify-between items-center my-5">
+            <p class="flex items-center font-medium text-gray-800 dark:text-white text-sm">
+                Recents
+            </p>
+
+            <!-- <button
+                class="transition-all bg-gray-800 hover:bg-gray-700 hover:scale-95 text-white py-3 px-5 rounded-lg text-[14px]">
+                Add Template
+            </button> -->
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div *ngFor="let i of [1,2,3,4,5,6,7,8,9]"
                 class="flex flex-col justify-center border border-gray-200 rounded-lg bg-white shadow-md overflow-hidden hover:shadow-lg transition duration-300 relative">
-                <img src="../../../../assets/images/card-cover1.jpg" alt="Card Cover" class="w-full h-48 object-cover">
-                <button class="text-lg transition-all hover:text-2xl"><i class="bi bi-three-dots-vertical absolute top-1 right-1"></i></button>
+                <img src="../../../../assets/images/card-cover2.jpg" alt="Card Cover" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <p class="text-lg font-bold text-gray-800 truncate">Template Title</p>
 
@@ -22,10 +49,16 @@
                         <span
                             class="text-[12px] text-green-700 bg-green-100 py-1 px-3 rounded-full font-medium">Published</span>
 
-                        <button
-                            class="flex items-center text-[15px] text-indigo-600 bg-indigo-100 py-[2px] px-2 rounded-md border border-indigo-300 hover:bg-indigo-200 hover:text-indigo-800 transition">
-                            <i class="bi bi-eye"></i>
-                        </button>
+                        <div class="flex">
+                            <button
+                                class="flex mr-2 items-center text-[15px] text-indigo-600 bg-indigo-100 py-[2px] px-2 rounded-md border border-indigo-300 hover:bg-indigo-200 hover:text-indigo-800 transition">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                                class="flex  items-center text-[15px] text-green-600 bg-green-100 py-[2px] px-2 rounded-md border border-green-300 hover:bg-green-200 hover:text-green-800 transition">
+                                <i class="bi bi-pen"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <p class="text-[12px] mt-4 text-gray-500">Last updated 4 minutes ago</p>
@@ -35,3 +68,49 @@
         </div>
     </div>
 </div>
+
+<ng-template #addTemplate>
+    <h2 mat-dialog-title>Add Template</h2>
+    <form [formGroup]="addTemplateForm" (ngSubmit)="onSubmit(addTemplateForm.controls)">
+        <mat-dialog-content class="mat-typography">
+            <div class="max-w-[100%] flex flex-col space-y-5">
+                <div class="flex flex-col space-y-1">
+                    <label for="template_name" class="text-sm font-semibold text-gray-500">Template Name</label>
+                    <input type="email" id="template_name" name="template_name" formControlName="template_name"
+                        class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200" />
+                    <p *ngIf="getTemplateForm.template_name.hasError('required') && getTemplateForm.template_name.touched"
+                        class="text-red-600 text-sm">Template Name is Required !</p>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <div class="flex items-center justify-between">
+                        <label for="template_tags" class="text-sm font-semibold text-gray-500">Add Tags</label>
+                    </div>
+                    <input type="text" id="template_tags" name="template_tags" formControlName="template_tags"
+                        class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200" />
+                    <p *ngIf="getTemplateForm.template_tags.hasError('required') && getTemplateForm.template_tags.touched"
+                        class="text-red-600 text-sm">Please add atleast one Tag !</p>
+                </div>
+                <!-- <div class="flex items-center space-x-2 relative">
+                    <div class="toggle-group">
+                        <div class="flex items-center justify-between">
+                            <label for="template_tags" class="text-sm font-semibold text-gray-500">Make Protected</label>
+                        </div>                        <input type="checkbox" name="on-off-switch" id="on-off-switch" checked="" tabindex="1">
+                        <label for="on-off-switch" class="font-semibold">
+                            <span class="aural">Protected </span>
+                        </label>
+                        <div class="onoffswitch pull-right" aria-hidden="true">
+                            <div class="onoffswitch-label">
+                                <div class="onoffswitch-inner"></div>
+                                <div class="onoffswitch-switch"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-button color="accent" mat-dialog-close>Save as Draft</button>
+            <button mat-button type="submit" color="primary" cdkFocusInitial>Create</button>
+        </mat-dialog-actions>
+    </form>
+</ng-template>

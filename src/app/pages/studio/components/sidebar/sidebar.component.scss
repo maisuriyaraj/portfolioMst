@@ -3,6 +3,7 @@
     
     .main-nav-container-open{
         width: 270px;
+        z-index: 999;
         transition: width  0.3s ease;
 
         .main-nav{
@@ -12,6 +13,7 @@
 
     .main-nav-container-close{
         width: 0px;
+        z-index: 999;
         transition: width  0.3s ease;
 
         .main-nav{

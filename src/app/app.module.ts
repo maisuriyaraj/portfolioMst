@@ -11,6 +11,8 @@ import { AuthService } from './services/auth.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
+import { TemplateService } from './services/template.service';
+import { CommonComponentsModule } from './modules/common-components.module';
 
 
 
@@ -23,13 +25,10 @@ import { CookieService } from 'ngx-cookie-service';
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule,
-    ReactiveFormsModule,
+    CommonComponentsModule,
     NgxSpinnerModule,
-    FormsModule,
     ToastrModule.forRoot(),
   ],
   exports : [NgxSpinnerModule,ToastrModule,CommonModule],
-  providers: [DataService,AuthService,CookieService]
 })
 export class AppModule { }

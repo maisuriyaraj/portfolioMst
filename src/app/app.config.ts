@@ -4,12 +4,13 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), // required animations providers
     provideToastr(),
-    provideAnimations()
+    provideAnimations(), provideAnimationsAsync()
   ]
 };
 
