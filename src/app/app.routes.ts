@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './pages/public/forgotPassword/forgotPas
 import { StudioComponent } from './pages/studio/studio.component';
 import { authGuard } from './guard/auth.guard';
 import { publicGuard } from './guard/public.guard';
+import { TemplatePreviewComponent } from './pages/studio/template-preview/template-preview.component';
 
 export const routes: Routes = [
     {
@@ -32,5 +33,10 @@ export const routes: Routes = [
         component : StudioComponent,
         canActivate : [authGuard],
         loadChildren : () => import('./pages/studio/studio.module').then((m) => m.StudioModule)
+    },
+    {
+        path : 'template/preview/:id',
+        component : TemplatePreviewComponent,
+        canActivate:[authGuard]
     }
 ];
